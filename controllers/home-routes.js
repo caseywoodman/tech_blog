@@ -40,4 +40,24 @@ router.get("/newpost", withAuth, async (req, res) => {
   res.render("newpost", { loggedIn: req.session.loggedIn, user_id: req.session.user_id });
 });
 
+// route to updatePost page
+router.get("/updatepost/:id", withAuth, async (req, res) => {
+  try {
+    const postData = await Post.findByPk(req.params.id);
+    if (!postData) {
+      res.status(404).json({ message: "No post with this id!" });
+      return;
+    }
+    const post = postData.get({ plain: true });
+    console.log(post.user_id);
+    if (post.user_id === req.session.user_id) {
+      res.render("updatepost", { post, loggedIn: req.session.loggedIn, user_id: req.session.user_id });
+    } else {
+      res.redirect("/");
+    }
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 module.exports = router;
