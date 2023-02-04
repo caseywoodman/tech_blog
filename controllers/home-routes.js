@@ -25,10 +25,14 @@ router.get("/login", (req, res) => {
 router.get("/signup", (req, res) => {
   res.render("signup");
 });
-module.exports = router;
 
 // route to DASHBOARD page
-router.get("/dashboard", (req, res) => {
-  res.render("dashboard");
+router.get("/dashboard", withAuth, async (req, res) => {
+  const postData = await Post.findAll({ where: { user_id: req.session.user_id }, include: [User] }).catch((err) => {
+    res.json(err);
+  });
+  const posts = postData.map((post) => post.get({ plain: true }));
+  res.render("dashboard", { posts, loggedIn: req.session.loggedIn, user_id: req.session.user_id });
 });
+
 module.exports = router;
