@@ -35,4 +35,9 @@ router.get("/dashboard", withAuth, async (req, res) => {
   res.render("dashboard", { posts, loggedIn: req.session.loggedIn, user_id: req.session.user_id });
 });
 
+// route to newPost page
+router.get("/newpost", withAuth, async (req, res) => {
+  res.render("newpost", { loggedIn: req.session.loggedIn, user_id: req.session.user_id });
+});
+
 module.exports = router;

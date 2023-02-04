@@ -46,6 +46,12 @@ nav {
   background-color: var(--secondary);
 }
 
+button {
+  padding: 1rem;
+  background-color: var(--primary);
+  color: var(--light);
+}
+
 /* CARDS */
 .post-card {
   width: 100%;
@@ -63,7 +69,20 @@ nav {
 
 .post-header {
   color: var(--light);
-  margin: 0;
+  margin-bottom: 1rem;
+  background-color: var(--secondary);
+  padding: 0.625rem;
+  border: 3px solid var(--primary);
+  border-radius: var(--border-radius);
+  border-style: solid;
+  border-width: medium;
+  width: 100%;
+
+}
+
+.user-post {
+  color: var(--light);
+  margin-bottom: 1rem;
   background-color: var(--secondary);
   padding: 0.625rem;
   border: 3px solid var(--primary);
