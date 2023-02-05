@@ -53,6 +53,14 @@ button {
   margin: 1rem;
 }
 
+footer {
+  padding: 15px;
+  text-align: center;
+  background: var(--primary);
+  color: white;
+  border-bottom-style: solid;
+}
+
 /* CARDS */
 .post-card {
   width: 100%;

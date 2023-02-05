@@ -1,0 +1,36 @@
+ 
+<div class="m-auto col-md-12 post-card" data-id="{{post.id}}" id="postId">
+    <div class='display-flex justify-space-between p-3 post-header'> 
+        <p class="post-header-text">{{uppercase post.title}}</p>
+        <p class="post-body-text">POSTED BY: {{uppercase post.user.username}} ON {{format_date post.createdAt}}</p>
+    </div>
+    <div class='post-body'>
+        <p class="post-body-text">{{uppercase post.body}}</p>
+    </div>
+    <div class="display-flex flex-column m-2 p-2 card">
+        <div>
+            <h2 class="text-center text-primary">ADD COMMENT</h2>
+        </div>
+        <form class="form login-form ">
+      <div class="form-group">
+        <label for="comment">COMMENT:</label>
+        <input class="form-input" type="text" id="comment" />
+      </div>
+      <div class="form-group">
+        <button class="btn btn-primary" type="submit" id="addCommentBtn">SUBMIT COMMENT</button>
+      </div>
+    </form>
+        {{#each post.comments as |comment|}} 
+            <div class="display-flex flex-column p-2 m-1 bg-light">
+                <div class="display-flex p-2 m-1 bg-primary text-light justify-space-between">
+                    <div>{{uppercase comment.user.username}}</div>
+                    <div>{{format_date_time comment.createdAt}}</div>
+                </div>
+                <div class="m-2 p-2 bg-white">{{uppercase comment.comment}}</div>
+            </div>
+        {{/each}}
+    </div>
+</div>
+
+<script src="./../js/addcomment.js"></script>
+

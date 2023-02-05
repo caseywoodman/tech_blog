@@ -1,6 +1,6 @@
       <div class='display-flex justify-space-between p-3 mb-3 user-post' data-id="{{post.id}}"> 
         <p class="post-header-text">{{uppercase post.title}}</p>
-        <p class="post-body-text">{{post.createdAt}}</p>
+        <p class="post-body-text">{{format_date post.createdAt}}</p>
       </div>
 <div class="display-flex justify-space-between p-3 mb-3 post-body flex-column ">
     <div class="col-10 m-auto">

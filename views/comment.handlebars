@@ -1,0 +1,30 @@
+ 
+<div class="m-auto col-md-12 post-card" data-id="{{post.id}}" id="postId">
+    <div class='display-flex justify-space-between p-3 post-header'> 
+        <p class="post-header-text">{{post.title}}</p>
+        <p class="post-body-text">posted by {{post.user.username}} on {{post.createdAt}}</p>
+    </div>
+    <div class='post-body'>
+        <p class="post-body-text">{{post.body}}</p>
+    </div>
+    <div class="display-flex flex-column m-2 card">
+        <div>
+            <h2 class="text-center text-primary">COMMENTS</h2>
+            {{#if loggedIn}}
+            <button id="createCommentBtn">CREATE NEW COMMENT</button>
+            {{/if}}
+        </div>
+        {{#each post.comments as |comment|}} 
+            <div class="display-flex flex-column p-2 m-1 bg-light">
+                <div class="display-flex p-2 m-1 bg-primary text-light justify-space-between">
+                    <div>{{comment.user.username}}</div>
+                    <div>{{comment.createdAt}}</div>
+                </div>
+                <div class="m-2 p-2 bg-white">{{comment.comment}}</div>
+            </div>
+        {{/each}}
+    </div>
+</div>
+
+<script src="./../js/comment.js"></script>
+

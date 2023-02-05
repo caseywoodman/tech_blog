@@ -1,7 +1,7 @@
 {{#each posts as |post|}}
       <div class='display-flex justify-space-between p-3 mb-3 user-post' data-id="{{post.id}}"> 
-        <p class="post-header-text">{{uppercase post.title}}</p>
-        <p class="post-body-text">{{post.createdAt}}</p>
+        <p class="post-header-text" data-id="{{post.id}}">{{uppercase post.title}}</p>
+        <p class="post-body-text" data-id="{{post.id}}">{{format_date post.createdAt}}</p>
       </div>
 {{/each}}
 

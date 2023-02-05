@@ -1,10 +1,21 @@
 module.exports = {
-  // the helper method 'format_time' will take in a timestamp and return a string with only the time
   format_time: (date) => {
-    // We use the 'toLocaleTimeString()' method to format the time as H:MM:SS AM/PM
-    return date.toLocalTimeString("en-US");
+    return date.toLocaleTimeString("en-US");
   },
-  uppercase: (text) => {
-    return text.toUpperCase();
+  format_date: (date) => {
+    const month = date.toLocaleDateString("en-US", { month: "long" }).toUpperCase();
+    const day = date.toLocaleDateString("en-US", { day: "numeric" });
+    const year = date.toLocaleDateString("en-US", { year: "numeric" });
+    return `${month} ${day}, ${year}`;
+  },
+  format_date_time: (date) => {
+    const month = date.toLocaleDateString("en-US", { month: "long" }).toUpperCase();
+    const day = date.toLocaleDateString("en-US", { day: "numeric" });
+    const year = date.toLocaleDateString("en-US", { year: "numeric" });
+    const time = date.toLocaleTimeString("en-US");
+    return `${month} ${day}, ${year} AT ${time}`;
+  },
+  uppercase: (input) => {
+    return input.toUpperCase();
   },
 };
