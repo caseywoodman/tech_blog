@@ -1,4 +1,5 @@
 async function createPost(event) {
+  event.preventDefault();
   const title = document.querySelector("#title").value.trim();
   const body = document.querySelector("#body").value.trim();
   const response = await fetch("/api/post", {
