@@ -2,7 +2,7 @@
 <div class="m-auto col-md-12 post-card" data-id="{{post.id}}" id="postId">
     <div class='display-flex justify-space-between p-3 post-header'> 
         <p class="post-header-text">{{uppercase post.title}}</p>
-        <p class="post-body-text">posted by {{uppercase post.user.username}} on {{format_date_time post.createdAt}}</p>
+        <p class="post-body-text">POSTED BY: {{uppercase post.user.username}} ON {{format_date post.createdAt}}</p>
     </div>
     <div class='post-body'>
         <p class="post-body-text">{{post.body}}</p>
