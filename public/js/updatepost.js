@@ -1,6 +1,7 @@
 const id = document.querySelector("#postId").getAttribute("data-id");
 
 async function updatePost(event) {
+  event.preventDefault();
   const title = document.querySelector("#title").value.trim();
   const body = document.querySelector("#body").value;
   const response = await fetch(`/api/post/${id}`, {
@@ -16,6 +17,7 @@ async function updatePost(event) {
 }
 
 async function deletePost(event) {
+  event.preventDefault();
   const response = await fetch(`/api/post/${id}`, {
     method: "DELETE",
   });

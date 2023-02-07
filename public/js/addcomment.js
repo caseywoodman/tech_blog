@@ -1,6 +1,7 @@
 const post_id = document.querySelector("#postId").getAttribute("data-id");
 
 async function addCommentBtn(event) {
+  event.preventDefault();
   const comment = document.querySelector("#comment").value.trim();
   const response = await fetch("/api/comment/", {
     method: "POST",
